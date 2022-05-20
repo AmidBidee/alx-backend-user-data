@@ -15,15 +15,21 @@ class Auth:
         """
         require auth method
         """
+        # return true if path is None
+        # excluded_paths is None or empty
+        excluded_paths_len = len(excluded_paths)
+        if path is None or excluded_paths is None or excluded_paths_len == 0:
+            return True
 
-        return False
+        if path.endswith('/') and path in excluded_paths:
+            return False
 
     def authorization_header(self, request=None) -> str:
         """
         authorization header method
         """
         return None
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         """
         current user method
