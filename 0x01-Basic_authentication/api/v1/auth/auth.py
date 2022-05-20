@@ -16,12 +16,15 @@ class Auth:
         require auth method
         """
         # return true if path is None
-        # excluded_paths is None or empty
-        excluded_paths_len = len(excluded_paths)
-        if path is None or excluded_paths is None or excluded_paths_len == 0:
+        if path is None:
             return True
 
-        if path.endswith('/') and path in excluded_paths:
+        # excluded_paths is None or empty
+        excluded_paths_len = len(excluded_paths)
+        if excluded_paths is None or excluded_paths_len == 0:
+            return True
+
+        if path and path in excluded_paths:
             return False
         else:
             return True
