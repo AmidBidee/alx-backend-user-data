@@ -21,7 +21,7 @@ class Auth:
 
         # excluded_paths is None or empty
         excluded_paths_len = len(excluded_paths)
-        if excluded_paths is None or excluded_paths_len == 0:
+        if excluded_paths == None or excluded_paths_len == 0:
             return True
 
         if path and path in excluded_paths:
