@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Basic Auth class module 
+""" Basic Auth class module
 """
 import re
 import base64
@@ -26,8 +26,8 @@ class BasicAuth(Auth):
         return None
 
     def decode_base64_authorization_header(
-            self,
-            base64_authorization_header: str,
+        self,
+        base64_authorization_header: str,
     ) -> str:
         """Decodes a base64-encoded authorization header.
         """
