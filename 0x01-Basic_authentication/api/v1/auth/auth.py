@@ -15,17 +15,13 @@ class Auth:
         """
         require auth method
         """
-        # return true if path is None
-        if path is None:
-            return True
-
-        # excluded_paths is None or empty
-        excluded_paths_len = len(excluded_paths)
-        if excluded_paths == None or excluded_paths_len == 0:
-            return True
-
-        if path and path in excluded_paths:
+        if path is not None and excluded_paths is not None:
+            if excluded_paths == 0:
+                return True
+            if path not in excluded_paths:
+                return True
             return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """
