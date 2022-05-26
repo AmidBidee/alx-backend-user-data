@@ -36,13 +36,13 @@ class DB:
         """Adds a user to the database
         """
         # create a new User instance
-        new_user = User(email=email, hashed_password=hashed_password)
-
         # add the user to the db session
         # and commit it to the db
         try:
+            new_user = User(email=email, hashed_password=hashed_password)
             self._session.add(new_user)
             self._session.commit()
         except Exception:
             self._session.rollback()
+            new_user = None
         return new_user
