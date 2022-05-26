@@ -8,8 +8,12 @@ from sqlalchemy.orm.session import Session
 
 from user import Base
 from user import User
-from typing import Type
+from typing import (
+        Type,
+        TypeVar
+        )
 
+usr = TypeVar('usr', bound=User)
 
 class DB:
     """DB class
@@ -32,7 +36,7 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email: str, hashed_password: str) -> Type[User]:
+    def add_user(self, email: str, hashed_password: str) -> Type[usr]:
         """Adds a user to the database
         """
         # create a new User instance
