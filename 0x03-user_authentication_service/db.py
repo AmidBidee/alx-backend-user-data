@@ -40,6 +40,9 @@ class DB:
 
         # add the user to the db session
         # and commit it to the db
-        self._session.add(new_user)
-        self._session.commit()
+        try:
+            self._session.add(new_user)
+            self._session.commit()
+        except Exception:
+            self._session.rollback()
         return new_user
